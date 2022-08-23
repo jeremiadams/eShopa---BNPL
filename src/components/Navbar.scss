@@ -1,0 +1,48 @@
+@import './App.scss';
+
+.nav {
+    
+
+    height: 8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 6rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.logo {
+    width: 10rem;
+}
+
+.cart__favorite-box {
+    display: flex;
+    
+    div {
+        height: 4rem;
+        width: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: .7rem;
+
+        &:not(:last-child) {
+            margin-right: 2rem;
+        }
+         
+        svg {
+            width: 2rem;
+        }
+
+    }
+}
+
+.favorite__box {
+    background-color: $color-white;
+}
+
+.cart__box {
+    background-color: $color-black;
+}

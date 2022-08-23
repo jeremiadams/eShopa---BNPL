@@ -1,0 +1,42 @@
+$color-white: #ffffff;
+$color-black: #000000;
+$color-background: #F5EBDD;
+$color-tertiary: #BCB8B1;
+
+@mixin font-primary {
+  font-family: 'Geomanist', sans-serif;
+}
+
+@mixin font-secondary {
+  font-family: 'DM Sans', sans-serif;
+}
+
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  // padding-left: 4rem;
+  // padding-right: 4rem;
+}
+
+
+main {
+  display: grid;
+  grid-template-rows: 80vh 50vw 30vw;
+  grid-template-columns: [full-start] 1fr [center-start] repeat(8, [col-start] minmax(min-content, 140px) [col-end]) [center-end] 1fr [full-end];
+}
+
+
+
+
