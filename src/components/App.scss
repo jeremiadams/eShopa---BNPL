@@ -33,7 +33,7 @@ body {
 
 main {
   display: grid;
-  grid-template-rows: 80vh 50vw 30vw;
+  grid-template-rows: 85vh 50vw auto;
   grid-template-columns: [full-start] 1fr [center-start] repeat(8, [col-start] minmax(min-content, 140px) [col-end]) [center-end] 1fr [full-end];
 }
 

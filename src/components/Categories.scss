@@ -35,7 +35,15 @@
     &__category {
         width: 25rem;
         padding: 2rem;
+        border: none;
+        border-radius: .3rem;
         background-color: $color-white;
+        transition: all, .2s ease;
+
+        &:hover {
+            box-shadow: 0 .1rem 1.5rem 0 rgba(29, 48, 59, 0.171);
+            transform: scale(1.05);
+        }
 
         &-img {
             width: 100%;

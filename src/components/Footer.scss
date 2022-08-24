@@ -1,0 +1,46 @@
+@import './App.scss';
+
+.footer {
+    grid-column: full-start / full-end;
+
+    background-color: $color-black;
+    padding: 4rem 6rem 0 6rem;
+    
+    &__flex {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__logo-box {
+        width: 10rem;
+    }
+
+    &__logo {
+        width: 100%;
+    }
+
+    &__contact {
+
+        :not(:last-child) {
+            margin-right: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        svg {
+            width: 3.5rem;
+        }
+    }
+
+    p {
+        @include font-secondary;
+        text-align: center;
+        color: $color-white;
+        font-size: 1.2rem;
+        font-weight: 400;
+        padding: 4rem 0;
+    }
+
+}
