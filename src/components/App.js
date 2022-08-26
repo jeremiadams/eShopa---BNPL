@@ -9,6 +9,7 @@ import Footer from './Footer'
 import Apparel from '../pages/Apparel'
 import Shoes from '../pages/Shoes'
 import Jewelry from '../pages/Jewelry'
+import Cosmetics from '../pages/Cosmetics'
 
 function App() {
 
@@ -52,7 +53,14 @@ function App() {
                     }
 
                 />
-                <Route path="/categories/cosmetics" />
+                <Route 
+                    path="/categories/cosmetics"
+                    element={
+                        <>
+                            <Cosmetics />
+                        </>
+                    } 
+                />
             </Routes>
 
             <Footer />

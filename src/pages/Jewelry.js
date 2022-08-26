@@ -1,5 +1,4 @@
 import React, {useContext} from 'react'
-import {useNavigate} from 'react-router-dom'
 
 import {Context} from '../Context'
 import ProductItem from '../components/ProductItem'
@@ -7,8 +6,6 @@ import './CategoryPage.scss'
 
 function Jewelry() {
     const {jewelry} = useContext(Context)
-    const history = useNavigate()
-    console.log(history)
 
     const jewelryItems = jewelry.map(item => (
         <ProductItem 
