@@ -3,7 +3,7 @@ import React from 'react'
 import './Header.scss'
 import HeroImg from '../images/hero-img.png'
 
-function Hero() {
+function Header() {
 
     return (
         <header className="hero">
@@ -20,4 +20,4 @@ function Hero() {
     )
 }
 
-export default Hero
+export default Header

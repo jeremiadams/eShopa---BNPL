@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {Link} from 'react-router-dom'
 
 import './Navbar.scss'
 import Logo from '../images/eshopa-logo.png'
@@ -27,9 +28,11 @@ function Header() {
 
     return (
         <nav className="nav" style={{}}>
-            <div className="logo__box">
-                <img className="logo" src={Logo} />
-            </div>
+            <Link to="/">
+                <div className="logo__box">
+                    <img className="logo" src={Logo} />
+                </div>
+            </Link>
             <div className="cart__favorite-box">
 
                 <div className="favorite__box">

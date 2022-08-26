@@ -1,0 +1,67 @@
+@import './App.scss';
+
+.product__item {
+    // width: 30rem;
+    // height: 47.3rem;
+    background-color: $color-white;
+    position: relative;
+
+    &-img {
+        height: 80%;
+        width: 100%;
+    }
+
+    &-price {
+        @include font-primary;
+        font-size: 1.6rem;
+        font-weight: 500;
+        padding:.5rem 0;
+        color: $color-red;
+    
+    }
+
+    &-name {
+        @include font-secondary;
+        padding: 1rem 0;
+        font-size: 1.4rem;
+        font-weight: 400;
+        word-wrap: break-word;
+        color: $color-black-light;
+        line-height: 1.3;
+
+        &-box {
+            height: 6rem;
+        }
+        
+    }
+
+    &-like-box {
+        height: 4rem;
+        width: 4rem;
+        background-color: $color-white;
+        border-radius: 50%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        cursor: pointer;
+        transition: all .2s;
+
+        &:hover {
+            box-shadow: 0 .1rem 1.5rem 0 rgba(29, 48, 59, 0.12);
+        }
+
+        img {
+            width: 2rem;
+
+            
+        }
+    }
+}
+
+svg:hover {
+    fill: black;
+}

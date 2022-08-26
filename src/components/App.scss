@@ -1,7 +1,10 @@
 $color-white: #ffffff;
 $color-black: #000000;
+$color-black-light: #2E3032;
+$color-red: #d01345;
 $color-background: #F5EBDD;
 $color-tertiary: #BCB8B1;
+
 
 @mixin font-primary {
   font-family: 'Geomanist', sans-serif;
@@ -33,8 +36,12 @@ body {
 
 main {
   display: grid;
-  grid-template-rows: 85vh 50vw auto;
+  grid-template-rows: 85vh auto auto;
   grid-template-columns: [full-start] 1fr [center-start] repeat(8, [col-start] minmax(min-content, 140px) [col-end]) [center-end] 1fr [full-end];
+}
+
+a {
+  text-decoration: none;
 }
 
 

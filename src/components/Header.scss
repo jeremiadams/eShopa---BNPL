@@ -7,8 +7,8 @@
     background-attachment: fixed;
     background-position: center;
     padding-top: 10rem;
-    padding-left: 6rem;
-    padding-right: 6rem;
+    padding-left: 9rem;
+    padding-right: 9rem;
     
 
     display: flex;
@@ -36,7 +36,7 @@
 
     &__text-primary {
         @include font-primary;
-        font-size: 5rem;
+        font-size: 4.5rem;
         color: $color-black;
     }
 
