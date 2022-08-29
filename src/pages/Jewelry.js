@@ -13,9 +13,11 @@ function Jewelry() {
             id={item?.id}
             name={item?.name}
             imageUrl={item?.imageUrl}
-            price={item.price}
+            price={item?.price}
             currentPrice={item?.price.current.value}
             previousPrice={item?.price.previous.value}
+            productCode={item?.productCode}
+            pageName={'jewelry'}
         />
     ))
 

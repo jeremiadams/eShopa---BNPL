@@ -1,4 +1,5 @@
 import React, {useRef} from 'react'
+import {Link} from 'react-router-dom'
 
 import './ProductItem.scss'
 import LikeImage from '../images/love.svg'
@@ -16,14 +17,16 @@ function ProductItem(props) {
     }
 
     return (
-        <div className="product__item">
-            <img className="product__item-img" src={`https://${props.imageUrl}`} alt={`Image of ${props.name}`}/>
-            <div className="product__item-name-box"><p className="product__item-name">{props.name}</p></div>
-            <div><h3 className="product__item-price">{props.price.current.text}</h3></div>
-            <div onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} className="product__item-like-box">
-                <img style={{cursor: 'pointer'}} ref={imgRef} src={LikeImage} />
+        <Link to={`/categories/${props.pageName}/${props.productCode}`}>
+            <div className="product__item">
+                <img className="product__item-img" src={`https://${props.imageUrl}`} alt={`Image of ${props.name}`}/>
+                <div className="product__item-name-box"><p className="product__item-name">{props.name}</p></div>
+                <div><h3 className="product__item-price">{props.price.current.text}</h3></div>
+                <div onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} className="product__item-like-box">
+                    <img style={{cursor: 'pointer'}} ref={imgRef} src={LikeImage} />
+                </div>
             </div>
-        </div>
+        </Link>
     )
 }
 

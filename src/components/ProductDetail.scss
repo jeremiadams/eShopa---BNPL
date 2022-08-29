@@ -1,0 +1,105 @@
+@import './App.scss';
+
+.product__detail {
+    grid-column: full-start / full-end;
+    grid-row: 1 / 3;
+
+    padding: 12rem 8rem;
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+
+    &-img {
+        width: 100%;
+    }
+
+    &-img-box {
+        width: 40rem;
+        height: 50rem;
+    }
+
+    &-info {
+        max-width: 40rem;
+        padding-top: 4rem;
+    }
+
+    &-name {
+        @include font-secondary;
+        font-size: 1.6rem;
+        color: $color-black;
+        line-height: 1.3;
+        padding-bottom: 1.5rem;
+        color: $color-grey-dark;
+    }
+
+    &-price {
+        @include font-primary;
+        font-size: 1.6rem;
+        font-weight: 500;
+        color: $color-grey-light;
+        padding-bottom: 1.8rem;
+    }
+
+    &-colour {
+        @include font-secondary;
+        font-size: 1.3rem;
+        padding-bottom: 1.8rem;
+        letter-spacing: 1px;
+        text-transform: capitalize;
+        font-weight: 600;
+        color:$color-grey-dark;
+
+        span {
+            font-weight: 400;
+        }
+    }
+
+    &-btns {
+        display: flex;
+        align-items: center;
+        padding-top: 2rem;
+    }
+
+    &-cart-btn {
+        @include font-secondary;
+        font-size: 1.4rem;
+        font-weight: 400;
+        background-color: $color-green;
+        color: $color-white;
+        letter-spacing: .15rem;
+        // padding: 1.4rem 3.5rem;
+        height: 4rem;
+        padding: .5rem 3.5rem;
+        border: none;
+        border-radius: .2rem;
+        margin-right: .5rem;
+        cursor: pointer;
+        outline: none;
+
+        &:hover {
+            background-color: #006637;
+        }
+
+    }
+
+    &-like-btn {
+        height: 4rem;
+        width: 4rem;
+        background-color: $color-grey;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: .5rem;
+        cursor: pointer;
+
+        img {
+            width: 2rem;
+            height: 2rem;
+
+        }
+    }
+
+}
+
+
