@@ -8,6 +8,8 @@ function ContextProvider (props) {
     const [shoes, setShoes] = useState([])
     const [jewelry, setJewelry] = useState([])
     const [cosmetics, setCosmetics] = useState([])
+    const [cartItems, setCartItems] = useState([])
+    const [addedToCart, setAddedToCart] = useState(false)
 
     useEffect(() => {
         const options = {
@@ -53,8 +55,27 @@ function ContextProvider (props) {
         })
     }, [])
 
+    function addToCart(id) {
+        [...apparel, ...shoes, ...jewelry, ...cosmetics].map(item => {
+            setAddedToCart(true)
+            if (Number(item.id) === Number(id)) {
+                setCartItems(prevCartItems => [...prevCartItems, item])
+            }
+            setTimeout(() => {
+                setAddedToCart(false)
+            }, 1500);
+        })
+    }
+
+    function removeFromCart(id) {
+        const index = cartItems.findIndex(item => item.id === id)
+        const updatedArr = [...cartItems]
+        updatedArr.splice(index, 1)
+        setCartItems(updatedArr)
+    }
+
     return (
-        <Context.Provider value={{apparel, shoes, jewelry, cosmetics}}>
+        <Context.Provider value={{apparel, shoes, jewelry, cosmetics, cartItems, addToCart, removeFromCart, addedToCart}}>
             {props.children}
         </Context.Provider>
     )

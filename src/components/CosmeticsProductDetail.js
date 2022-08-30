@@ -7,7 +7,7 @@ import LikeImage from '../images/love.svg'
 import LikeFilledImage from '../images/love-filled.svg'
 
 function CosmeticsProductDetail() {
-    const {cosmetics} = useContext(Context)
+    const {cosmetics, addToCart, addedToCart} = useContext(Context)
     const {cosmeticsId} = useParams()
 
     const thisCosmetics = cosmetics.find(item => Number(item.productCode) === Number(cosmeticsId))
@@ -32,7 +32,7 @@ function CosmeticsProductDetail() {
                 <h3 className="product__detail-price">{thisCosmetics?.price.current.text}</h3>
                 <p className="product__detail-colour">COLOUR: <span>{thisCosmetics?.colour}</span></p>
                 <div className="product__detail-btns">
-                    <button className="product__detail-cart-btn">ADD TO CART</button>
+                    <button onClick={() => addToCart(thisCosmetics.id)} className="product__detail-cart-btn">{addedToCart ? 'ADDED' : 'ADD TO CART'}</button>
                     <div onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} className="product__detail-like-btn">
                         <img style={{cursor: 'pointer'}} ref={imgRef} src={LikeImage} />
                     </div>

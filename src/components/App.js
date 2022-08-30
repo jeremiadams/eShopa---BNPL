@@ -14,6 +14,7 @@ import ApparelProductDetail from '../components/ApparelProductDetail'
 import ShoesProductDetail from '../components/ShoesProductDetail'
 import JewelryProductDetail from '../components/JewelryProductDetail'
 import CosmeticsProductDetail from '../components/CosmeticsProductDetail'
+import Cart from '../pages/Cart'
 
 function App() {
 
@@ -31,6 +32,16 @@ function App() {
                         </>
                     }
                 />
+
+                <Route  
+                    path="/cart" 
+                    element={
+                        <>
+                            <Cart />
+                        </>
+                    }
+                />
+
                 <Route  
                     path="/categories/apparel" 
                     element={
