@@ -15,6 +15,7 @@ import ShoesProductDetail from '../components/ShoesProductDetail'
 import JewelryProductDetail from '../components/JewelryProductDetail'
 import CosmeticsProductDetail from '../components/CosmeticsProductDetail'
 import Cart from '../pages/Cart'
+import Like from '../pages/Like'
 
 function App() {
 
@@ -29,6 +30,15 @@ function App() {
                         <>
                             <Header />
                             <Categories />
+                        </>
+                    }
+                />
+
+                <Route  
+                    path="/likes" 
+                    element={
+                        <>
+                            <Like />
                         </>
                     }
                 />

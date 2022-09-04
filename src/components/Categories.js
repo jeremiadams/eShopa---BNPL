@@ -11,7 +11,7 @@ import CosmeticsImg from '../images/cosmetics-img.png'
 function Categories() {
 
     return (
-        <section className="categories">
+        <section className="categories" id="categories">
             <div className="categories__heading-box">
                 <h1 className="categories__heading">Categories</h1>
             </div>

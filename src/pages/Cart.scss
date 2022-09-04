@@ -7,7 +7,7 @@
 
     display: flex;
     gap: 7rem;
-    padding-top: 10rem;
+    padding-top: 12rem;
 
     &__items {
         display: flex;
@@ -22,6 +22,27 @@
             font-size: 1.8rem;
             font-weight: 400;
             color: $color-black-light;
+
+            &-btn {
+                text-transform: uppercase;
+                font-weight: 500;
+                font-size: 1.4rem;
+                background-color: $color-green;
+                color: $color-white;
+                letter-spacing: .15rem;
+                // padding: 1.4rem 3.5rem;
+                height: 4rem;
+                padding: .5rem 3.5rem;
+                border: none;
+                border-radius: .2rem;
+                margin-top: 5rem;
+                cursor: pointer;
+                outline: none;
+
+                &:hover {
+                    background-color: #006637;
+                }
+            }
         }
     }
 
@@ -70,6 +91,20 @@
 
             &:hover {
                 background-color: #006637;
+            }
+        }
+
+        &-success {
+            @include font-primary;
+            padding: 1.5rem 3.5rem;
+            border: none;
+            border-radius: .2rem;
+            color: $color-white;
+            background-color: $color-black;
+            margin-top: 2rem;
+
+            p {
+                font-size: 1.5rem;
             }
         }
     }

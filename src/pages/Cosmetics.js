@@ -17,6 +17,7 @@ function Cosmetics() {
             currentPrice={item?.price.current.value}
             previousPrice={item?.price.previous.value}
             productCode={item?.productCode}
+            isFavorite={item.isFavorite}
             pageName={'cosmetics'}
         />
     ))

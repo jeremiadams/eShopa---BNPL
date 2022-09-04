@@ -9,6 +9,8 @@ function ContextProvider (props) {
     const [jewelry, setJewelry] = useState([])
     const [cosmetics, setCosmetics] = useState([])
     const [cartItems, setCartItems] = useState([])
+    const [likedItems, setLikedItems] = useState([])
+    // const [addedLike, setAddedLike] = useState(false)
     const [addedToCart, setAddedToCart] = useState(false)
 
     useEffect(() => {
@@ -18,7 +20,12 @@ function ContextProvider (props) {
         }
 
         axios.request(options).then((response) => {
-            setApparel(response.data.products)
+            setApparel(response.data.products.map(item => {
+                return {
+                    ...item, 
+                    isFavorite: false
+                }
+            }) )
         })
     }, [])
 
@@ -29,7 +36,12 @@ function ContextProvider (props) {
         }
 
         axios.request(options).then((response) => {
-            setShoes(response.data.products)
+            setShoes(response.data.products.map(item => {
+                return {
+                    ...item, 
+                    isFavorite: false
+                }
+            }) )
         })
     }, [])
 
@@ -40,7 +52,12 @@ function ContextProvider (props) {
         }
 
         axios.request(options).then((response) => {
-            setJewelry(response.data.products)
+            setJewelry(response.data.products.map(item => {
+                return {
+                    ...item, 
+                    isFavorite: false
+                }
+            }) )
         })
     }, [])
 
@@ -51,7 +68,12 @@ function ContextProvider (props) {
         }
 
         axios.request(options).then((response) => {
-            setCosmetics(response.data.products)
+            setCosmetics(response.data.products.map(item => {
+                return {
+                    ...item, 
+                    isFavorite: false
+                }
+            }) )
         })
     }, [])
 
@@ -74,8 +96,85 @@ function ContextProvider (props) {
         setCartItems(updatedArr)
     }
 
+    function clearCart() {
+        setCartItems([])
+    }
+
+    function toggleLike(id, pageName) {
+        [...apparel, ...shoes, ...jewelry, ...cosmetics].map(item => {
+            // setAddedLike(true)
+            if (Number(item.id) === Number(id)) {
+                // setLikedItems(prevLikedItems => [...prevLikedItems, item])
+                const ind = likedItems.findIndex(item => Number(item.id) === Number(id))
+                const updatedArr = [...likedItems]
+                if (ind === -1) {
+                    updatedArr.push({
+                        ...item,
+                        isFavorite: true
+                    })
+                    setLikedItems(updatedArr)
+                } else if (ind >= 0) {
+                    updatedArr.splice(ind, 1)
+                    setLikedItems(updatedArr)
+                }
+            }
+        })
+
+        if (pageName === 'apparel') {
+            const updatedArr = apparel.map(apparel => {
+                if (apparel.id === id) {
+                    // console.log(apparel.id)
+                    // console.log(!apparel.isFavorite) 
+                    return {...apparel, isFavorite: !apparel.isFavorite}
+                }
+                return apparel
+            })
+
+            setApparel(updatedArr)
+
+
+        } else if (pageName === 'shoes') {
+            const updatedArr = shoes.map(shoes => {
+                if (shoes.id === id) {
+
+                    return {...shoes, isFavorite: !shoes.isFavorite}
+                }
+                return shoes
+            })
+
+            setShoes(updatedArr)
+
+        } else if (pageName === 'jewelry') {
+            const updatedArr = jewelry.map(jewelry => {
+                if (jewelry.id === id) {
+
+                    return {...jewelry, isFavorite: !jewelry.isFavorite}
+                }
+                return jewelry
+            })
+
+            setJewelry(updatedArr)
+
+        } else if (pageName === 'cosmetics') {
+            const updatedArr = cosmetics.map(cosmetics => {
+                if (cosmetics.id === id) {
+
+                    return {...cosmetics, isFavorite: !cosmetics.isFavorite}
+                }
+                return cosmetics
+            })
+
+            setCosmetics(updatedArr)
+
+        }
+
+
+
+
+    }
+
     return (
-        <Context.Provider value={{apparel, shoes, jewelry, cosmetics, cartItems, addToCart, removeFromCart, addedToCart}}>
+        <Context.Provider value={{apparel, shoes, jewelry, cosmetics, cartItems, addToCart, removeFromCart, clearCart, addedToCart, likedItems, toggleLike}}>
             {props.children}
         </Context.Provider>
     )

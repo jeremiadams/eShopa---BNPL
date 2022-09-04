@@ -29,9 +29,6 @@
         align-items: center;
         border-radius: .7rem;
 
-        &:not(:last-child) {
-            margin-right: 2rem;
-        }
          
         svg {
             width: 2rem;
@@ -42,6 +39,7 @@
 
 .favorite__box {
     background-color: $color-white;
+    margin-right: 2rem;
 }
 
 .cart__box {
