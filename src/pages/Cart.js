@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import Confetti from 'react-confetti'
 
@@ -7,9 +7,8 @@ import {Context} from '../Context'
 import CartItem from '../components/CartItem'
 
 function Cart() {
-    const [ordered, setOrdered] = useState(false)
-    const [orderSuccess, setOrderSuccess] = useState(false)
-    const {cartItems, clearCart} = useContext(Context)
+    const [orderDenied, setOrderDenied] = useState(false)
+    const {cartItems, loanPoints, handleCheckout, ordered, orderSuccess} = useContext(Context)
 
     const cartItemsElems = cartItems.map(item => (
         <CartItem
@@ -23,23 +22,25 @@ function Cart() {
         />
     ))
 
+
+
     let subTotal = 0
     for (let i = 0; i < cartItems.length; i++) {
         subTotal = subTotal + cartItems[i].price.current.value
+       
+       
     }
 
-    function handleOrder() {
-        setOrdered(true)
-        setTimeout(() => {
-            setOrdered(false)
-            clearCart()
-            setOrderSuccess(true)
-            setTimeout(() => {
-                setOrderSuccess(false)
-            }, 8500)
-        }, 2000);
+    useEffect(() => {
+        if (subTotal > 0 && subTotal > loanPoints) {
+            setOrderDenied(true)
+        } else if (subTotal > 0 && loanPoints >= subTotal) {
+            setOrderDenied(false)
+        } else if (cartItems.length < 1 ) {
+            setOrderDenied(false)
+        }
+    }, [cartItems])
 
-    }
 
     return(
         <section className="cart">
@@ -55,11 +56,19 @@ function Cart() {
             <div className="cart__checkout">
                 <h3 className="cart__checkout-heading">Checkout</h3>
                 <p className="cart__checkout-total">Sub Total: <span>$ {subTotal.toFixed(2)}</span></p>
-                {cartItems.length > 0 && <button onClick={handleOrder} className="cart__checkout-btn">{ordered ? 'Ordering...' : 'Place Order'}</button>}
+                {cartItems.length > 0 && <button onClick={() => handleCheckout(subTotal)} className="cart__checkout-btn">{ordered ? 'Ordering...' : 'Place Order'}</button>}
                 {orderSuccess && <div className="cart__checkout-success">
                     <Confetti />
                     <p>Order Placed Successfully ✨</p>
                 </div>}
+                {orderDenied && <div className="cart__checkout-denied">
+                    <p>Not Enough Loan Points</p>
+                    <button>Request Loan Points</button>
+                </div>}
+                <div className="cart__loan">
+                <h3 className="cart__loan-heading">Loan Points Available: <span>$ {loanPoints.toFixed(2)}</span></h3>
+                <p className="cart__loan-description" >What are Loan Points? <span>Loan Points are ....</span></p>
+                </div>
             </div>
         </section>
     )

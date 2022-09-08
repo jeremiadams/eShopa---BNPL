@@ -4,6 +4,12 @@ import axios from 'axios'
 const Context = React.createContext()
 
 function ContextProvider (props) {
+    const [loanPoints, setLoanPoints] = useState(
+         100
+        )
+
+
+        //JSON.parse(localStorage.getItem('loanPoints')) ||
     const [apparel, setApparel] = useState([])
     const [shoes, setShoes] = useState([])
     const [jewelry, setJewelry] = useState([])
@@ -12,6 +18,8 @@ function ContextProvider (props) {
     const [likedItems, setLikedItems] = useState([])
     // const [addedLike, setAddedLike] = useState(false)
     const [addedToCart, setAddedToCart] = useState(false)
+    const [ordered, setOrdered] = useState(false)
+    const [orderSuccess, setOrderSuccess] = useState(false)
 
     useEffect(() => {
         const options = {
@@ -173,8 +181,31 @@ function ContextProvider (props) {
 
     }
 
+    
+    function handleCheckout(subTotal) {
+        if (loanPoints > 0 && (loanPoints - subTotal) >= 0) {
+            setLoanPoints(prevLoanPoints => prevLoanPoints - subTotal)
+            setOrdered(true)
+            setTimeout(() => {
+                setOrdered(false)
+                clearCart()
+                setOrderSuccess(true)
+                setTimeout(() => {
+                    setOrderSuccess(false)
+                }, 8500)
+            }, 2000);
+        } 
+        
+    }
+
+    useEffect(() => {
+        localStorage.setItem('loanPoints', JSON.stringify(loanPoints))
+    }, [loanPoints])
+
+
+
     return (
-        <Context.Provider value={{apparel, shoes, jewelry, cosmetics, cartItems, addToCart, removeFromCart, clearCart, addedToCart, likedItems, toggleLike}}>
+        <Context.Provider value={{apparel, shoes, jewelry, cosmetics, cartItems, addToCart, removeFromCart, clearCart, addedToCart, likedItems, toggleLike, loanPoints, ordered, orderSuccess, handleCheckout}}>
             {props.children}
         </Context.Provider>
     )
