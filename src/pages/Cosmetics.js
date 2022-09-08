@@ -18,7 +18,7 @@ function Cosmetics() {
             previousPrice={item?.price.previous.value}
             productCode={item?.productCode}
             isFavorite={item.isFavorite}
-            pageName={'cosmetics'}
+            pageName={item.pageName}
         />
     ))
 

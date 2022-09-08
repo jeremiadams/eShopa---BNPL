@@ -18,7 +18,7 @@ function Jewelry() {
             previousPrice={item?.price.previous.value}
             productCode={item?.productCode}
             isFavorite={item.isFavorite}
-            pageName={'jewelry'}
+            pageName={item.pageName}
         />
     ))
 

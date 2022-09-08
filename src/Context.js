@@ -31,7 +31,8 @@ function ContextProvider (props) {
             setApparel(response.data.products.map(item => {
                 return {
                     ...item, 
-                    isFavorite: false
+                    isFavorite: false,
+                    pageName: 'apparel'
                 }
             }) )
         })
@@ -47,7 +48,8 @@ function ContextProvider (props) {
             setShoes(response.data.products.map(item => {
                 return {
                     ...item, 
-                    isFavorite: false
+                    isFavorite: false,
+                    pageName: 'shoes'
                 }
             }) )
         })
@@ -63,7 +65,9 @@ function ContextProvider (props) {
             setJewelry(response.data.products.map(item => {
                 return {
                     ...item, 
-                    isFavorite: false
+                    isFavorite: false,
+                    pageName: 'jewelry'
+
                 }
             }) )
         })
@@ -79,7 +83,8 @@ function ContextProvider (props) {
             setCosmetics(response.data.products.map(item => {
                 return {
                     ...item, 
-                    isFavorite: false
+                    isFavorite: false,
+                    pageName: 'cosmetics'
                 }
             }) )
         })

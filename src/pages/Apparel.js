@@ -18,7 +18,7 @@ function Apparel() {
             previousPrice={item?.price.previous.value}
             productCode={item?.productCode}
             isFavorite={item.isFavorite}
-            pageName={'apparel'}
+            pageName={item.pageName}
         />
     ))
 

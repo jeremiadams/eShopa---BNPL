@@ -7,20 +7,28 @@ import LikeImage from '../images/love.svg'
 import LikeFilledImage from '../images/love-filled.svg'
 
 function JewelryProductDetail() {
-    const {jewelry, addToCart, addedToCart} = useContext(Context)
+    const {jewelry, addToCart, addedToCart, toggleLike} = useContext(Context)
     const {jewelryId} = useParams()
 
     const thisJewelry = jewelry.find(item => Number(item.productCode) === Number(jewelryId))
 
-    const imgRef = useRef(null)
+    // const imgRef = useRef(null)
 
-    function mouseEnter() {
-        imgRef.current.src = LikeFilledImage
-    }
+    // function mouseEnter() {
+    //     imgRef.current.src = LikeFilledImage
+    // }
 
-    function mouseLeave() {
-        imgRef.current.src = LikeImage
-    }
+    // function mouseLeave() {
+    //     imgRef.current.src = LikeImage
+    // }
+
+    const favIcon = thisJewelry.isFavorite ? 
+                    <div onClick={() => toggleLike(thisJewelry.id, thisJewelry.pageName)}  className="product__detail-like-btn">
+                        <img style={{cursor: 'pointer'}}  src={LikeFilledImage} />
+                    </div> : 
+                    <div onClick={() => toggleLike(thisJewelry.id, thisJewelry.pageName)}  className="product__detail-like-btn">
+                        <img style={{cursor: 'pointer'}}  src={LikeImage} />
+                    </div>
 
     return (
         <section className="product__detail">
@@ -33,9 +41,7 @@ function JewelryProductDetail() {
                 <p className="product__detail-colour">COLOUR: <span>{thisJewelry?.colour}</span></p>
                 <div className="product__detail-btns">
                     <button onClick={() => addToCart(thisJewelry.id)} className="product__detail-cart-btn">{addedToCart ? 'ADDED' : 'ADD TO CART'}</button>
-                    <div onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} className="product__detail-like-btn">
-                        <img style={{cursor: 'pointer'}} ref={imgRef} src={LikeImage} />
-                    </div>
+                    {favIcon}
                 </div>
             </div>
         </section>
