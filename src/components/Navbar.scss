@@ -20,6 +20,7 @@
 
 .cart__favorite-box {
     display: flex;
+    gap: 2rem;
     
     div {
         height: 4rem;
@@ -39,9 +40,57 @@
 
 .favorite__box {
     background-color: $color-white;
-    margin-right: 2rem;
+    // margin-right: 2rem;
 }
 
 .cart__box {
     background-color: $color-black;
+}
+
+.loan__points {
+    @include font-primary;
+    color: $color-black;
+    font-size: 1.9rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    // position: absolute;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    &:hover {
+        color: $color-green;
+    }
+
+    &-box {
+        width: auto !important;
+    }
+
+}
+
+.popover {
+    height: 15rem;
+    width: 27rem;
+    background-color: $color-green;
+    border-radius: 8px;
+    padding: 2rem;
+    z-index: 6;
+    margin-left: -2rem;
+    box-shadow: 0 .1rem 1.5rem 0 rgba(0, 0, 0, 0.508);
+
+    &__header {
+        @include font-primary;
+        font-size: 1.6rem;
+        font-weight: 500;
+        color: $color-white;
+        padding-bottom: 1.5rem;
+    }
+
+    &__body {
+        @include font-secondary;
+        font-size: 1.4rem;
+        color: $color-white;
+        line-height: 1.4;
+    }
 }

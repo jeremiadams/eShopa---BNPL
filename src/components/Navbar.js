@@ -1,5 +1,9 @@
 import React, {useState, useContext} from 'react'
 import {Link} from 'react-router-dom'
+import Button from 'react-bootstrap/Button';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Popover from 'react-bootstrap/Popover';
+
 
 import './Navbar.scss'
 import {Context} from '../Context'
@@ -7,7 +11,7 @@ import Logo from '../images/eshopa-logo.png'
 
 function Header() {
     const [boxShadow, setBoxShadow] = useState(false)
-    const {cartItems} = useContext(Context)
+    const {cartItems, loanPoints} = useContext(Context)
 
     React.useEffect(function() {
         const onScroll = () => {
@@ -23,6 +27,19 @@ function Header() {
         boxShadow: '0 .1rem 1.5rem 0 rgb(2 2 3 / 10%)',
         transition: 'boxShadow .4s'
       } : {}
+
+
+    const popover = (
+    <Popover className="popover" id="popover-basic">
+        <Popover.Header className="popover__header" as="h3">Loan Points</Popover.Header>
+        <Popover.Body className="popover__body">
+        And here's some <strong>amazing</strong> content. It's very engaging.
+        right? content. It's very engaging.
+        </Popover.Body>
+    </Popover>
+    );
+
+
     
 
     return (
@@ -33,6 +50,13 @@ function Header() {
                 </div>
             </Link>
             <div className="cart__favorite-box">
+
+                {/* <div className="loan__points-box">
+                    <h3 className="loan__points">$ {loanPoints.toFixed(2)}</h3>
+                </div> */}
+                <OverlayTrigger className="loan__points-box" trigger="click"  placement="bottom-start" overlay={popover}>
+                    <Button className="loan__points" variant="success">$ {loanPoints.toFixed(2)}</Button>
+                </OverlayTrigger>
 
                 <Link to="/likes">
                     <div className="favorite__box">
