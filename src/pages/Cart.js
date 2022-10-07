@@ -67,7 +67,7 @@ function Cart() {
                 </div>}
                 <div className="cart__loan">
                 <h3 className="cart__loan-heading">Loan Points Available: <span>$ {loanPoints.toFixed(2)}</span></h3>
-                <p className="cart__loan-description" >What are Loan Points? <span>Loan Points are ....</span></p>
+                <p className="cart__loan-description" >What are Loan Points? <span>Loan Points show the total price of items allowable to take on loan.</span></p>
                 </div>
             </div>
         </section>

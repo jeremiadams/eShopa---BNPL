@@ -33,8 +33,7 @@ function Header() {
     <Popover className="popover" id="popover-basic">
         <Popover.Header className="popover__header" as="h3">Loan Points</Popover.Header>
         <Popover.Body className="popover__body">
-        And here's some <strong>amazing</strong> content. It's very engaging.
-        right? content. It's very engaging.
+        Loan Points show the total price of items allowable to take on loan.
         </Popover.Body>
     </Popover>
     );
