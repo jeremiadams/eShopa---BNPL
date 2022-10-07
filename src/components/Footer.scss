@@ -44,3 +44,17 @@
     }
 
 }
+
+@media (max-width: 532px) {
+    .footer {
+        padding: 4rem 4rem 0 4rem;
+
+        &__logo-box {
+            width: 7rem;
+            padding-top: 20px;
+        }
+    
+    }
+    
+  }
+  

@@ -14,4 +14,8 @@
 
 }
 
+.breadcrumb__box {
+    grid-column: full-start / full-end;
+}
+
 //(100vw / 4 - (2 * 3))rem)

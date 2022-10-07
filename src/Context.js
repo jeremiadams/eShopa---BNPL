@@ -5,11 +5,9 @@ const Context = React.createContext()
 
 function ContextProvider (props) {
     const [loanPoints, setLoanPoints] = useState(
-         100
+        JSON.parse(localStorage.getItem('loanPoints')) || 500
         )
 
-
-        //JSON.parse(localStorage.getItem('loanPoints')) ||
     const [apparel, setApparel] = useState([])
     const [shoes, setShoes] = useState([])
     const [jewelry, setJewelry] = useState([])
@@ -203,6 +201,10 @@ function ContextProvider (props) {
         
     }
 
+    function requestLoanPoints() {
+        setLoanPoints(prevLoanPoints => prevLoanPoints + 250)
+    }
+
     useEffect(() => {
         localStorage.setItem('loanPoints', JSON.stringify(loanPoints))
     }, [loanPoints])
@@ -210,7 +212,7 @@ function ContextProvider (props) {
 
 
     return (
-        <Context.Provider value={{apparel, shoes, jewelry, cosmetics, cartItems, addToCart, removeFromCart, clearCart, addedToCart, likedItems, toggleLike, loanPoints, ordered, orderSuccess, handleCheckout}}>
+        <Context.Provider value={{apparel, shoes, jewelry, cosmetics, cartItems, addToCart, removeFromCart, clearCart, addedToCart, likedItems, toggleLike, loanPoints, ordered, orderSuccess, handleCheckout, requestLoanPoints}}>
             {props.children}
         </Context.Provider>
     )

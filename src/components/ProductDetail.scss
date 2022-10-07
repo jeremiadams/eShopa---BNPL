@@ -2,7 +2,7 @@
 
 .product__detail {
     grid-column: full-start / full-end;
-    grid-row: 1 / 3;
+    grid-row: 1 / -1;
 
     padding: 12rem 8rem;
     display: flex;
@@ -99,6 +99,16 @@
         }
     }
 
+}
+
+@media (max-width: 615px) {
+    .product__detail{
+        padding: 12rem;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        align-items: center;
+    }
 }
 
 

@@ -8,7 +8,7 @@ import CartItem from '../components/CartItem'
 
 function Cart() {
     const [orderDenied, setOrderDenied] = useState(false)
-    const {cartItems, loanPoints, handleCheckout, ordered, orderSuccess} = useContext(Context)
+    const {cartItems, loanPoints, handleCheckout, requestLoanPoints, ordered, orderSuccess} = useContext(Context)
 
     const cartItemsElems = cartItems.map(item => (
         <CartItem
@@ -39,7 +39,7 @@ function Cart() {
         } else if (cartItems.length < 1 ) {
             setOrderDenied(false)
         }
-    }, [cartItems])
+    }, [cartItems, loanPoints])
 
 
     return(
@@ -63,7 +63,7 @@ function Cart() {
                 </div>}
                 {orderDenied && <div className="cart__checkout-denied">
                     <p>Not Enough Loan Points</p>
-                    <button>Request Loan Points</button>
+                    <button onClick={() => requestLoanPoints()}>Request Loan Points</button>
                 </div>}
                 <div className="cart__loan">
                 <h3 className="cart__loan-heading">Loan Points Available: <span>$ {loanPoints.toFixed(2)}</span></h3>
