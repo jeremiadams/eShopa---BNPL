@@ -3,17 +3,23 @@
 .categories {
     grid-column: full-start / full-end;
     background-color: $color-background;
-    padding-top: 18vh;
+    padding-top: 15vh;
     padding-left: 9rem;
     padding-right: 9rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 18vh;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    text-align: center;
+    padding-bottom: 15vh;
+
 
     &__box {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat( auto-fit, 25rem );
         gap: 3rem;
+        justify-content: center;
+        // padding: 0 6vw;
+        
 
     }
 
@@ -25,6 +31,8 @@
         border: none;
         border-radius: .2rem;
         margin-bottom: 5rem;
+        display: inline-block;
+        margin: 4rem auto;
     }
 
     &__heading {
@@ -67,4 +75,13 @@
         }
     }
 
+}
+
+@media (max-width: 730px) {
+    .categories{
+        padding-left: 0rem;
+        padding-right: 0rem;
+        padding-top: 10vh;
+        padding-bottom: 10vh;
+    }
 }

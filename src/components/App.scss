@@ -44,12 +44,19 @@ main {
   grid-template-columns: [full-start] 1fr [center-start] repeat(8, [col-start] minmax(min-content, 140px) [col-end]) [center-end] 1fr [full-end];
 }
 
+@media (max-width: 850px) {
+  main {
+    grid-template-rows: auto auto auto;
+  }
+}
+
 @media (max-width: 479px) {
   main {
     grid-template-columns: [full-start] 2rem [center-start] repeat(8, [col-start] minmax(min-content, 140px) [col-end]) [center-end] 2rem [full-end];
   }
   
 }
+
 
 a {
   text-decoration: none;
