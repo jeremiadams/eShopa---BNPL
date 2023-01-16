@@ -39,7 +39,7 @@ function Cart() {
         } else if (cartItems.length < 1 ) {
             setOrderDenied(false)
         }
-    }, [cartItems, loanPoints])
+    }, [cartItems, loanPoints, subTotal])
 
 
     return(
