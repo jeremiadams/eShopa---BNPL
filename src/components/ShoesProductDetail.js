@@ -1,5 +1,5 @@
-import React, {useContext, useRef} from 'react'
-import {useParams} from 'react-router-dom'
+import React, { useContext } from 'react'
+import { useParams } from 'react-router-dom'
 
 import './ProductDetail.scss'
 import {Context} from '../Context'

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 
 import './Footer.scss'
 import FooterLogo from '../images/footer-logo.png'
