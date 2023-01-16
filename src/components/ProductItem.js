@@ -1,5 +1,5 @@
-import React, {useRef, useContext} from 'react'
-import {Link} from 'react-router-dom'
+import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
 
 import './ProductItem.scss'
 import {Context} from '../Context'
@@ -7,7 +7,7 @@ import LikeImage from '../images/love.svg'
 import LikeFilledImage from '../images/love-filled.svg'
 
 function ProductItem(props) {
-    const imgRef = useRef(null)
+    // const imgRef = useRef(null)
     const {toggleLike} = useContext(Context)
 
     // function mouseEnter() {
@@ -24,10 +24,10 @@ function ProductItem(props) {
 
     const favIcon = props.isFavorite ? 
                     <div onClick={() => toggleLike(props.id, props.pageName)}  className="product__item-like-box">
-                        <img style={{cursor: 'pointer'}}  src={LikeFilledImage} />
+                        <img alt="" style={{cursor: 'pointer'}}  src={LikeFilledImage} />
                     </div> : 
                     <div onClick={() => toggleLike(props.id, props.pageName)}  className="product__item-like-box">
-                        <img style={{cursor: 'pointer'}}  src={LikeImage} />
+                        <img alt="" style={{cursor: 'pointer'}}  src={LikeImage} />
                     </div>
 
     return (
@@ -35,7 +35,7 @@ function ProductItem(props) {
 
             <Link to={`/categories/${props.pageName}/${props.productCode}`}>
                 <div className="product__item">
-                    <img className="product__item-img" src={`https://${props.imageUrl}`} alt={`Image of ${props.name}`}/>
+                    <img className="product__item-img" src={`https://${props.imageUrl}`} alt={props.name}/>
                     <div className="product__item-name-box"><p className="product__item-name">{props.name}</p></div>
                     <div><h3 className="product__item-price">{props.price.current.text}</h3></div>
                 </div>

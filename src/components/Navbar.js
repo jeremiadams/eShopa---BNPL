@@ -45,7 +45,7 @@ function Header() {
         <nav className="nav" style={navbarStyles}>
             <Link to="/">
                 <div className="logo__box">
-                    <img className="logo" src={Logo} />
+                    <img alt="e-Shopa Logo" className="logo" src={Logo} />
                 </div>
             </Link>
             <div className="cart__favorite-box">

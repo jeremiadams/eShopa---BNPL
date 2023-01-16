@@ -1,4 +1,4 @@
-import React, {useContext, useRef} from 'react'
+import React, {useContext} from 'react'
 import {useParams} from 'react-router-dom'
 
 import './ProductDetail.scss'
@@ -24,16 +24,16 @@ function JewelryProductDetail() {
 
     const favIcon = thisJewelry.isFavorite ? 
                     <div onClick={() => toggleLike(thisJewelry.id, thisJewelry.pageName)}  className="product__detail-like-btn">
-                        <img style={{cursor: 'pointer'}}  src={LikeFilledImage} />
+                        <img alt="" style={{cursor: 'pointer'}}  src={LikeFilledImage} />
                     </div> : 
                     <div onClick={() => toggleLike(thisJewelry.id, thisJewelry.pageName)}  className="product__detail-like-btn">
-                        <img style={{cursor: 'pointer'}}  src={LikeImage} />
+                        <img alt=""  style={{cursor: 'pointer'}}  src={LikeImage} />
                     </div>
 
     return (
         <section className="product__detail">
             <div className="product__detail-img-box">
-                <img className="product__detail-img" src={`https://${thisJewelry?.imageUrl}`}/>
+                <img alt={thisJewelry?.name} className="product__detail-img" src={`https://${thisJewelry?.imageUrl}`}/>
             </div>
             <div className="product__detail-info">
                 <p className="product__detail-name">{thisJewelry?.name}</p>

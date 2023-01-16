@@ -21,7 +21,7 @@ function CartItem(props) {
         <div className="cart__item-box">
             <div className="cart__item">
                 <div className="cart__item-img">
-                    <img src={`https://${props.imageUrl}`}/>
+                    <img alt={props.name} src={`https://${props.imageUrl}`}/>
                 </div>
                 <div className="cart__item-info">
                     <div>
@@ -34,7 +34,7 @@ function CartItem(props) {
                     </div>
                 </div>
                 <div onClick={() => removeFromCart(props.id)} onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} className="cart__item-remove">
-                    <img ref={imgRef} src={Remove}/>
+                    <img alt="Remove Button" ref={imgRef} src={Remove}/>
                 </div>
             </div>
 

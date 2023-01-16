@@ -1,8 +1,9 @@
-import React, {useContext, useRef} from 'react'
-import {useParams} from 'react-router-dom'
+import React, { useContext } from 'react'
+import { useParams } from 'react-router-dom'
 
 import './ProductDetail.scss'
-import {Context} from '../Context'
+
+import { Context } from '../Context'
 import LikeImage from '../images/love.svg'
 import LikeFilledImage from '../images/love-filled.svg'
 
@@ -24,16 +25,16 @@ function CosmeticsProductDetail() {
 
     const favIcon = thisCosmetics.isFavorite ? 
                     <div onClick={() => toggleLike(thisCosmetics.id, thisCosmetics.pageName)}  className="product__detail-like-btn">
-                        <img style={{cursor: 'pointer'}}  src={LikeFilledImage} />
+                        <img alt="" style={{cursor: 'pointer'}}  src={LikeFilledImage} />
                     </div> : 
                     <div onClick={() => toggleLike(thisCosmetics.id, thisCosmetics.pageName)}  className="product__detail-like-btn">
-                        <img style={{cursor: 'pointer'}}  src={LikeImage} />
+                        <img alt="" style={{cursor: 'pointer'}}  src={LikeImage} />
                     </div>
 
     return (
         <section className="product__detail">
             <div className="product__detail-img-box">
-                <img className="product__detail-img" src={`https://${thisCosmetics?.imageUrl}`}/>
+                <img alt={thisCosmetics?.name} className="product__detail-img" src={`https://${thisCosmetics?.imageUrl}`}/>
             </div>
             <div className="product__detail-info">
                 <p className="product__detail-name">{thisCosmetics?.name}</p>

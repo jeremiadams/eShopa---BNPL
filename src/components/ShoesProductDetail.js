@@ -24,16 +24,16 @@ function ShoesProductDetail() {
 
     const favIcon = thisShoes.isFavorite ? 
                     <div onClick={() => toggleLike(thisShoes.id, thisShoes.pageName)}  className="product__detail-like-btn">
-                        <img style={{cursor: 'pointer'}}  src={LikeFilledImage} />
+                        <img alt="" style={{cursor: 'pointer'}}  src={LikeFilledImage} />
                     </div> : 
                     <div onClick={() => toggleLike(thisShoes.id, thisShoes.pageName)}  className="product__detail-like-btn">
-                        <img style={{cursor: 'pointer'}}  src={LikeImage} />
+                        <img alt="" style={{cursor: 'pointer'}}  src={LikeImage} />
                     </div>
 
     return (
         <section className="product__detail">
             <div className="product__detail-img-box">
-                <img className="product__detail-img" src={`https://${thisShoes?.imageUrl}`}/>
+                <img alt={thisShoes?.name} className="product__detail-img" src={`https://${thisShoes?.imageUrl}`}/>
             </div>
             <div className="product__detail-info">
                 <p className="product__detail-name">{thisShoes?.name}</p>

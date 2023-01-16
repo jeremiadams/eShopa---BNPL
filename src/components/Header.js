@@ -16,7 +16,7 @@ function Header() {
 
             </div>
             <div className="hero__img-box">
-                <img className="hero__img" src={HeroImg}/>
+                <img alt="e-Shopa on a mobile screen" className="hero__img" src={HeroImg}/>
             </div>
         </header>
     )

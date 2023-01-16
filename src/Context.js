@@ -99,6 +99,7 @@ function ContextProvider (props) {
             setTimeout(() => {
                 setAddedToCart(false)
             }, 1500);
+            return null
         })
     }
 
@@ -131,6 +132,7 @@ function ContextProvider (props) {
                     setLikedItems(updatedArr)
                 }
             }
+            return null
         })
 
         if (pageName === 'apparel') {
