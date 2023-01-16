@@ -1,17 +1,27 @@
-import React from 'react'
+import React, { useRef, useEffect, useContext } from 'react'
 import {Routes, Route, Link} from 'react-router-dom'
 
 import './Categories.scss'
 
+
+import {Context} from '../Context'
 import ApparelImg from '../images/apparel-img.png'
 import ShoesImg from '../images/shoes-img.png'
 import JewelryImg from '../images/jewelry-img.png'
 import CosmeticsImg from '../images/cosmetics-img.png' 
 
 function Categories() {
+    const shopBtnRef = useRef(null)
+    const {updateShopRef} = useContext(Context)
+
+    useEffect(() => {
+        updateShopRef(shopBtnRef)
+
+    }, [])
+
 
     return (
-        <section className="categories" id="categories">
+        <section ref={shopBtnRef} className="categories" id="categories">
             <div className="categories__heading-box">
                 <h1 className="categories__heading">Categories</h1>
             </div>

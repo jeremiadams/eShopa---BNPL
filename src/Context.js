@@ -19,10 +19,12 @@ function ContextProvider (props) {
     const [ordered, setOrdered] = useState(false)
     const [orderSuccess, setOrderSuccess] = useState(false)
 
+    const [shopRef, setShopRef] = useState(null)
+
     useEffect(() => {
         const options = {
             methos: 'GET',
-            url: 'http://localhost:8080/apparel'
+            url: '/.netlify/functions/getApparelData'
         }
 
         axios.request(options).then((response) => {
@@ -39,7 +41,7 @@ function ContextProvider (props) {
     useEffect(() => {
         const options = {
             methos: 'GET',
-            url: 'http://localhost:8080/shoes'
+            url: '/.netlify/functions/getShoesData'
         }
 
         axios.request(options).then((response) => {
@@ -56,7 +58,7 @@ function ContextProvider (props) {
     useEffect(() => {
         const options = {
             methos: 'GET',
-            url: 'http://localhost:8080/jewelry'
+            url: '/.netlify/functions/getJewelryData'
         }
 
         axios.request(options).then((response) => {
@@ -74,7 +76,7 @@ function ContextProvider (props) {
     useEffect(() => {
         const options = {
             methos: 'GET',
-            url: 'http://localhost:8080/cosmetics'
+            url: '/.netlify/functions/getCosmeticsData'
         }
 
         axios.request(options).then((response) => {
@@ -210,9 +212,16 @@ function ContextProvider (props) {
     }, [loanPoints])
 
 
+    function updateShopRef(ref) {
+        setShopRef(ref)
+    }
+
+    function executeScroll() {
+        shopRef.current.scrollIntoView()
+    }
 
     return (
-        <Context.Provider value={{apparel, shoes, jewelry, cosmetics, cartItems, addToCart, removeFromCart, clearCart, addedToCart, likedItems, toggleLike, loanPoints, ordered, orderSuccess, handleCheckout, requestLoanPoints}}>
+        <Context.Provider value={{apparel, shoes, jewelry, cosmetics, cartItems, addToCart, removeFromCart, clearCart, addedToCart, likedItems, toggleLike, loanPoints, ordered, orderSuccess, handleCheckout, requestLoanPoints, updateShopRef, shopRef, executeScroll}}>
             {props.children}
         </Context.Provider>
     )

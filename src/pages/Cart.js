@@ -8,7 +8,7 @@ import CartItem from '../components/CartItem'
 
 function Cart() {
     const [orderDenied, setOrderDenied] = useState(false)
-    const {cartItems, loanPoints, handleCheckout, requestLoanPoints, ordered, orderSuccess} = useContext(Context)
+    const {cartItems, loanPoints, handleCheckout, requestLoanPoints, ordered, orderSuccess, executeScroll} = useContext(Context)
 
     const cartItemsElems = cartItems.map(item => (
         <CartItem
@@ -49,7 +49,7 @@ function Cart() {
                     cartItems.length > 0 ? cartItemsElems : 
                     <div>
                         <h3 className="cart__items-empty">Your Cart is Empty</h3>
-                        <Link to="/"><button className="cart__items-empty-btn">Start Shopping</button></Link>
+                        <Link to="/"><button onClick={executeScroll} className="cart__items-empty-btn">Start Shopping</button></Link>
                     </div>
                 }    
             </div>

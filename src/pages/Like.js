@@ -7,7 +7,7 @@ import './CategoryPage.scss'
 import './Like.scss'
 
 function Like() {
-    const {likedItems} = useContext(Context)
+    const {likedItems, executeScroll} = useContext(Context)
     // console.log(likedItems)
 
     const likedItemsElems = likedItems.map(item => (
@@ -32,7 +32,7 @@ function Like() {
                 <div className="liked__items-empty-box">
                     <h3 className="liked__items-empty">You have no Saved Items</h3>
                     <p className="liked__items-empty-span">Start saving as you shop by selecting the little heart. Easy.</p>
-                    <Link to="/"><button className="liked__items-empty-btn">Start Shopping</button></Link>
+                    <Link to="/"><button onClick={executeScroll} className="liked__items-empty-btn">Start Shopping</button></Link>
                 </div> 
             }
         </section>
