@@ -7,7 +7,7 @@ import {Context} from '../Context'
 import CartItem from '../components/CartItem'
 
 function Cart() {
-    const [orderDenied, setOrderDenied] = useState(false)
+    const [orderDenied, setOrderDenied] = useState(false)   
     const {cartItems, loanPoints, handleCheckout, requestLoanPoints, ordered, orderSuccess, executeScroll} = useContext(Context)
 
     const cartItemsElems = cartItems.map(item => (
