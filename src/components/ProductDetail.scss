@@ -103,11 +103,17 @@
 
 @media (max-width: 615px) {
     .product__detail{
-        padding: 12rem;
+        margin-top: 75px;
+        padding-bottom: 40px;
         display: flex;
         flex-direction: column;
         gap: 3rem;
         align-items: center;
+
+        &-img-box {
+            width: auto;
+            height: auto;
+        }
     }
 }
 
