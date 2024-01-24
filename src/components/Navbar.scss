@@ -4,19 +4,22 @@
     
 
     height: 8rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 0 9rem;
     position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-column: full-start / full-end;
 }
 
 @media (max-width: 850px) {
     .nav{
-        padding: 0 3rem;
+        padding: 0 1.5rem;
     }
 }
 

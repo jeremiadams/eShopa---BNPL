@@ -2,9 +2,14 @@
 
 .footer {
     grid-column: full-start / full-end;
+    // position: fixed;
+    // bottom: 0;
+    // left: 0;
+    // right: 0;
 
     background-color: $color-black;
     padding: 4rem 9rem 0 9rem;
+    z-index: 600;
     
     &__flex {
         display: flex;
@@ -47,7 +52,7 @@
 
 @media (max-width: 532px) {
     .footer {
-        padding: 4rem 4rem 0 4rem;
+        padding: 4rem 1.5rem 0 1.5rem;
 
         &__logo-box {
             width: 7rem;
